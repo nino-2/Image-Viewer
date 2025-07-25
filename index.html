@@ -10,74 +10,88 @@
     />
   </head>
   <body>
-    <h1>Image Viewer (Doubly Linked List)</h1>
+    <!-- Change Background -->
+    <div id="viewerApp" data-theme="light">
+      <div class="app-header">
+        <h1>Image Viewer (Doubly Linked List)</h1>
+        <!-- Switch to Dark Mode -->
+        <button id="themeToggle" class="btn btn-outline-secondary btn-sm">
+          Switch to Dark
+        </button>
+      </div>
+      <!-- Image display -->
+      <img id="viewer" src="" alt="viewer" />
 
-    <img id="viewer" src="" alt="viewer" />
+      <div class="controls">
+        <!-- Prev Btn -->
+        <button class="btn btn-primary" id="prevBtn">&larr; Prev</button>
+        <!-- Next Btn -->
+        <button class="btn btn-primary" id="nextBtn">Next &rarr;</button>
+        <!-- Remove Current Btn -->
+        <button
+          type="button"
+          class="btn btn-danger"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+        >
+          Remove Current
+        </button>
+      </div>
 
-    <div class="controls">
-      <button class="btn btn-primary" id="prevBtn">&larr; Prev</button>
-      <button class="btn btn-primary" id="nextBtn">Next &rarr;</button>
-      <button
-        type="button"
-        class="btn btn-danger"
-        data-bs-toggle="modal"
-        data-bs-target="#exampleModal"
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
       >
-        Remove Current
-      </button>
-    </div>
-
-    <!-- Modal -->
-    <div
-      class="modal fade"
-      id="exampleModal"
-      tabindex="-1"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel"></h1>
-            <button
-              onclick="bootstrap.Modal.getInstance(document.getElementById('exampleModal')).hide()"
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">Are you sure you want to delete?</div>
-          <div class="modal-footer">
-            <button
-              onclick="bootstrap.Modal.getInstance(document.getElementById('exampleModal')).hide()"
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              No
-            </button>
-            <button type="button" id="removeBtn" class="btn btn-primary">
-              Yes
-            </button>
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel"></h1>
+              <button
+                onclick="bootstrap.Modal.getInstance(document.getElementById('exampleModal')).hide()"
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">Are you sure you want to delete?</div>
+            <div class="modal-footer">
+              <button
+                onclick="bootstrap.Modal.getInstance(document.getElementById('exampleModal')).hide()"
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                No
+              </button>
+              <button type="button" id="removeBtn" class="btn btn-primary">
+                Yes
+              </button>
+            </div>
           </div>
         </div>
       </div>
+
+      <div class="space-div">
+        <!-- Image URL Input -->
+        <input
+          id="imgInput"
+          type="text"
+          placeholder="Add image URL..."
+          size="40"
+        />
+        <!-- Add Image Btn -->
+        <button class="btnAdd" id="addBtn">Add Image (append)</button>
+      </div>
+      <!-- Image Address -->
+      <div class="info" id="status"></div>
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+      <script src="script.js"></script>
     </div>
-
-    <div class="space-div">
-      <input
-        id="imgInput"
-        type="text"
-        placeholder="Add image URL..."
-        size="40"
-      />
-      <button class="btnAdd" id="addBtn">Add Image (append)</button>
-    </div>
-
-    <div class="info" id="status"></div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
   </body>
 </html>

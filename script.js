@@ -261,6 +261,26 @@ const addBtn = document.getElementById("addBtn");
 const inputEl = document.getElementById("imgInput");
 const modalEl = document.getElementById("exampleModal");
 
+const app = document.getElementById("viewerApp");
+const toggleBtn = document.getElementById("themeToggle");
+
+// (Optional) restore last choice
+const saved = localStorage.getItem("theme");
+if (saved) {
+  app.setAttribute("data-theme", saved);
+  toggleBtn.textContent =
+    saved === "dark" ? "Switch to Light" : "Switch to Dark";
+}
+
+toggleBtn.addEventListener("click", () => {
+  const current = app.getAttribute("data-theme");
+  const next = current === "dark" ? "light" : "dark";
+  app.setAttribute("data-theme", next);
+  localStorage.setItem("theme", next);
+  toggleBtn.textContent =
+    next === "dark" ? "Switch to Light" : "Switch to Dark";
+});
+
 // removeBtn.addEventListener('click', () => {
 //   viewer.removeCurrent();
 //   render();

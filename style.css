@@ -1,11 +1,38 @@
-body {
-  font-family: sans-serif;
+#viewerApp {
+  --bg: #ffffff;
+  --text: #111111;
+  --muted: #555555;
+  --border: #cccccc;
+  --accent: #198754; /* for .btnAdd default (green-ish) */
+  --accent-text: #ffffff;
+}
+
+#viewerApp[data-theme="dark"] {
+  --bg: #0f1116;
+  --text: #e6e6e6;
+  --muted: #aaaaaa;
+  --border: #2a2d35;
+  --accent: #0d6efd; /* make it blue in dark mode, for fun */
+  --accent-text: #ffffff;
+}
+
+/* ---- APP LAYOUT (scoped) ---- */
+#viewerApp {
+  background: var(--bg);
+  color: var(--text);
+
+  padding: 2rem 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  margin: 2rem;
-  padding: 8px 12px;
+}
+.app-header {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 img {
   max-width: 480px;
@@ -32,7 +59,7 @@ button {
 }
 .info {
   font-size: 0.9rem;
-  color: #555;
+  color: gray;
   margin: auto;
   text-align: center;
   padding: 8px 20px;
